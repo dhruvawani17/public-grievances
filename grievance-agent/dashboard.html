@@ -1,109 +1,56 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LocalGrievance — Citizen → Ticket → Resolution</title>
 
-<html lang="en"><html lang="en">
-
-<head><head>
-
-    <meta charset="UTF-8"><meta charset="utf-8" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <title>LocalGrievance - Home</title><title>LocalGrievance — Citizen → Ticket → Resolution</title>
-
-    <link rel="stylesheet" href="style.css">
-
-</head><!-- Basic modern styling -->
-
-<body><style>
-
+<!-- Basic modern styling -->
+<style>
   :root{
-
-    <!-- NAVBAR -->    --bg:#f6fbff;
-
-    <nav>    --card:#ffffff;
-
-        <div class="logo">LocalGrievance</div>    --muted:#6b7280;
-
-        <div>    --accent:#0ea5a0;
-
-            <a href="index.html">Home</a>    --accent-dark:#08736f;
-
-            <a href="login.html" class="btn-login">Login</a>    --glass: rgba(255,255,255,0.7);
-
-        </div>    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-
-    </nav>  }
-
+    --bg:#f6fbff;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --accent:#0ea5a0;
+    --accent-dark:#08736f;
+    --glass: rgba(255,255,255,0.7);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
   *{box-sizing:border-box}
+  body{
+    margin:0;
+    background: linear-gradient(180deg,#f6fbff 0%, #eaf7f5 100%);
+    color:#0f172a;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
 
-    <!-- HERO SECTION -->  body{
+  /* container */
+  .wrap{
+    max-width:1100px;
+    margin:28px auto;
+    padding:20px;
+  }
 
-    <div class="header">    margin:0;
-
-        <h1>Citizen Grievance Redressal</h1>    background: linear-gradient(180deg,#f6fbff 0%, #eaf7f5 100%);
-
-        <p>Efficiently submit, track, and resolve your civic complaints with our AI-powered platform.</p>    color:#0f172a;
-
-        <br>    -webkit-font-smoothing:antialiased;
-
-        <a href="login.html" style="background: white; color: #1e4dd8; padding: 12px 24px; border-radius: 6px; font-weight: bold; text-decoration: none;">Get Started</a>    -moz-osx-font-smoothing:grayscale;
-
-    </div>  }
-
-
-
-    <!-- FEATURES SECTION -->  /* container */
-
-    <div style="max-width: 1000px; margin: 50px auto; padding: 0 20px;">  .wrap{
-
-        <h2 style="text-align: center; margin-bottom: 40px;">How It Works</h2>    max-width:1100px;
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">    margin:28px auto;
-
-            <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">    padding:20px;
-
-                <h3>1. Submit Complaint</h3>  }
-
-                <p>Describe your issue or upload a photo/audio. Our AI analyzes it instantly.</p>
-
-            </div>  /* header */
-
-            <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">  header{
-
-                <h3>2. AI Processing</h3>    display:flex;
-
-                <p>Your complaint is categorized, prioritized, and assigned to the right department.</p>    align-items:center;
-
-            </div>    justify-content:space-between;
-
-            <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">    gap:20px;
-
-                <h3>3. Resolution</h3>    margin-bottom:18px;
-
-                <p>Track the status in real-time and get notified when the issue is resolved.</p>  }
-
-            </div>  .brand{
-
-        </div>    display:flex;
-
-    </div>    gap:12px;
-
+  /* header */
+  header{
+    display:flex;
     align-items:center;
-
-    <!-- FOOTER -->  }
-
-    <footer style="background: #eee; padding: 40px; text-align: center; margin-top: 50px;">  .logo{
-
-        <p>&copy; 2025 LocalGrievance. All rights reserved.</p>    width:52px;
-
-    </footer>    height:52px;
-
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:18px;
+  }
+  .brand{
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+  .logo{
+    width:52px;
+    height:52px;
     border-radius:10px;
-
-</body>    background:linear-gradient(135deg,var(--accent), #60a5fa 60%);
-
-</html>    display:flex;
-
+    background:linear-gradient(135deg,var(--accent), #60a5fa 60%);
+    display:flex;
     align-items:center;
     justify-content:center;
     color:white;
@@ -218,7 +165,10 @@
           <p class="lead">Convert citizen messages into actionable municipal tickets — demo prototype</p>
         </div>
       </div>
-      <div class="muted tiny">Demo: runs fully in-browser · Keywords router · Simulated nudges</div>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <div class="muted tiny">Demo: runs fully in-browser · Keywords router · Simulated nudges</div>
+        <button id="logoutBtn" class="btn" style="background: #ef4444; padding: 8px 16px; font-size: 13px;">Logout</button>
+      </div>
     </header>
 
     <div class="grid">
@@ -610,6 +560,24 @@ function sendNudge(toCitizen=true){
 
 /* init */
 refreshUI();
+</script>
+<script type="module">
+  import { auth } from './firebase-config.js';
+  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      window.location.href = 'login.html';
+    }
+  });
+
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    signOut(auth).then(() => {
+      window.location.href = 'index.html';
+    }).catch((error) => {
+      console.error('Sign out error', error);
+    });
+  });
 </script>
 </body>
 </html>
