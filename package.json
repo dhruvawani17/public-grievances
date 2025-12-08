@@ -1,0 +1,14 @@
+{
+  "name": "grievance-agent",
+  "version": "1.0.0",
+  "description": "Local grievance to resolution agent frontend",
+  "main": "app.js",
+  "scripts": {
+    "dev": "cd grievance-agent && npx live-server --port=3000"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  }
+}
